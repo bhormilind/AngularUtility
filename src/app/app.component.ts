@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppsService } from './apps.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AngularUtility';
+
+  constructor(private service: AppsService){}
+
+
+  onClear(): void {
+
+  }
+
+  onGetIP(): any {
+    this.service.getIpDetails().subscribe(d => {
+      console.log(d);
+    });
+  }
 }
